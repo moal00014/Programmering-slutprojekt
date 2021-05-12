@@ -1,0 +1,10 @@
+C:\Users\كبيوتر\source\repos\CAR\CAR\bin\Debug\CAR.exe.config
+C:\Users\كبيوتر\source\repos\CAR\CAR\bin\Debug\CAR.exe
+C:\Users\كبيوتر\source\repos\CAR\CAR\bin\Debug\CAR.pdb
+C:\Users\كبيوتر\source\repos\CAR\CAR\obj\Debug\CAR.csprojAssemblyReference.cache
+C:\Users\كبيوتر\source\repos\CAR\CAR\obj\Debug\CAR.Form1.resources
+C:\Users\كبيوتر\source\repos\CAR\CAR\obj\Debug\CAR.Properties.Resources.resources
+C:\Users\كبيوتر\source\repos\CAR\CAR\obj\Debug\CAR.csproj.GenerateResource.cache
+C:\Users\كبيوتر\source\repos\CAR\CAR\obj\Debug\CAR.csproj.CoreCompileInputs.cache
+C:\Users\كبيوتر\source\repos\CAR\CAR\obj\Debug\CAR.exe
+C:\Users\كبيوتر\source\repos\CAR\CAR\obj\Debug\CAR.pdb
