@@ -20,6 +20,7 @@ namespace CAR
         enum Bil { Left, Right, None}
 
         int speed = 5;
+        Random l = new Random(); 
         Bil bil = Bil.None; 
 
         private void label1_Click(object sender, EventArgs e)
@@ -54,10 +55,38 @@ namespace CAR
             if (Line8.Top > panel.Height) Line8.Top = -Line8.Height;
             if (Line9.Top > panel.Height) Line9.Top = -Line9.Height;
 
-            if (bil == Bil.Left)
-                Spelare.Left -= speed;
+            if (B2.Visible)
+                B2.Top += speed;
+            if(B2.Top> panel.Height)
+            {
+                B2.Visible = false;
+                B2.Top = -B2.Height;
+                B2.Left = l.Next((panel.Width - B2.Width) / 2); 
+                B2.Visible = true; 
 
-            if (bil == Bil.Right)
+            }
+
+            if (B1.Visible)
+                B1.Top += speed;
+            if (B1.Top > panel.Height)
+            {
+                B1.Visible = false;
+                B1.Top = -B1.Height;
+                B1.Left = l.Next(panel.Width / 2, panel.Width- B1.Width);
+                B1.Visible = true;
+
+            }
+
+            if(Spelare.Bounds.IntersectsWith(B1.Bounds) || Spelare.Bounds.IntersectsWith(B2.Bounds))
+            {
+                timerAction.Enabled = false;
+                Game_Over.Visible = true; 
+            }
+
+            if (bil == Bil.Left && Spelare.Left>0)
+                Spelare.Left -= speed;
+            
+            if (bil == Bil.Right && Spelare.Left<panel.Width - Spelare.Width)  
                 Spelare.Left += speed;
 
         }
@@ -68,12 +97,27 @@ namespace CAR
                 bil = Bil.Left;
             else if (e.KeyData == Keys.Right)
                 bil = Bil.Right;
-            else bil = Bil.None; 
+            else bil = Bil.None;
+
+            if (Game_Over.Visible)
+                if (e.KeyData == Keys.Space)
+                {
+                    Game_Over.Visible = false;
+                    Spelare.Left = panel.Width / 2;
+                    B2.Left = 0;
+                    B1.Left = panel.Width - B2.Width; 
+                }
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             bil = Bil.None; 
+        }
+
+        private void Game_Over_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

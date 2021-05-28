@@ -31,6 +31,7 @@ namespace CAR
         {
             this.components = new System.ComponentModel.Container();
             this.panel = new System.Windows.Forms.Panel();
+            this.Spelare = new System.Windows.Forms.PictureBox();
             this.Line9 = new System.Windows.Forms.PictureBox();
             this.Line8 = new System.Windows.Forms.PictureBox();
             this.Line7 = new System.Windows.Forms.PictureBox();
@@ -42,8 +43,11 @@ namespace CAR
             this.Line1 = new System.Windows.Forms.PictureBox();
             this.labelSpeed = new System.Windows.Forms.Label();
             this.timerAction = new System.Windows.Forms.Timer(this.components);
-            this.Spelare = new System.Windows.Forms.PictureBox();
+            this.B1 = new System.Windows.Forms.PictureBox();
+            this.B2 = new System.Windows.Forms.PictureBox();
+            this.Game_Over = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Spelare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line7)).BeginInit();
@@ -53,14 +57,18 @@ namespace CAR
             ((System.ComponentModel.ISupportInitialize)(this.Line3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Spelare)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
             // 
             this.panel.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel.Controls.Add(this.Game_Over);
             this.panel.Controls.Add(this.Spelare);
+            this.panel.Controls.Add(this.B2);
+            this.panel.Controls.Add(this.B1);
             this.panel.Controls.Add(this.Line9);
             this.panel.Controls.Add(this.Line8);
             this.panel.Controls.Add(this.Line7);
@@ -75,6 +83,15 @@ namespace CAR
             this.panel.Size = new System.Drawing.Size(606, 608);
             this.panel.TabIndex = 0;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // Spelare
+            // 
+            this.Spelare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Spelare.Location = new System.Drawing.Point(279, 521);
+            this.Spelare.Name = "Spelare";
+            this.Spelare.Size = new System.Drawing.Size(45, 80);
+            this.Spelare.TabIndex = 9;
+            this.Spelare.TabStop = false;
             // 
             // Line9
             // 
@@ -174,14 +191,37 @@ namespace CAR
             this.timerAction.Interval = 1;
             this.timerAction.Tick += new System.EventHandler(this.timerAction_Tick);
             // 
-            // Spelare
+            // B1
             // 
-            this.Spelare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Spelare.Location = new System.Drawing.Point(279, 521);
-            this.Spelare.Name = "Spelare";
-            this.Spelare.Size = new System.Drawing.Size(45, 80);
-            this.Spelare.TabIndex = 9;
-            this.Spelare.TabStop = false;
+            this.B1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.B1.Location = new System.Drawing.Point(454, 290);
+            this.B1.Name = "B1";
+            this.B1.Size = new System.Drawing.Size(45, 80);
+            this.B1.TabIndex = 10;
+            this.B1.TabStop = false;
+            // 
+            // B2
+            // 
+            this.B2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.B2.Location = new System.Drawing.Point(113, 139);
+            this.B2.Name = "B2";
+            this.B2.Size = new System.Drawing.Size(45, 80);
+            this.B2.TabIndex = 11;
+            this.B2.TabStop = false;
+            // 
+            // Game_Over
+            // 
+            this.Game_Over.BackColor = System.Drawing.Color.Olive;
+            this.Game_Over.Font = new System.Drawing.Font("Tahoma", 20F);
+            this.Game_Over.ForeColor = System.Drawing.Color.White;
+            this.Game_Over.Location = new System.Drawing.Point(176, 225);
+            this.Game_Over.Name = "Game_Over";
+            this.Game_Over.Size = new System.Drawing.Size(251, 86);
+            this.Game_Over.TabIndex = 12;
+            this.Game_Over.Text = "Game Over";
+            this.Game_Over.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Game_Over.Visible = false;
+            this.Game_Over.Click += new System.EventHandler(this.Game_Over_Click);
             // 
             // Form1
             // 
@@ -195,6 +235,7 @@ namespace CAR
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Spelare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line7)).EndInit();
@@ -204,7 +245,8 @@ namespace CAR
             ((System.ComponentModel.ISupportInitialize)(this.Line3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Line1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Spelare)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.B2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,6 +267,9 @@ namespace CAR
         private System.Windows.Forms.PictureBox Line1;
         private System.Windows.Forms.Timer timerAction;
         private System.Windows.Forms.PictureBox Spelare;
+        private System.Windows.Forms.PictureBox B2;
+        private System.Windows.Forms.PictureBox B1;
+        private System.Windows.Forms.Label Game_Over;
     }
 }
 
