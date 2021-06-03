@@ -19,7 +19,8 @@ namespace CAR
 
         enum Bil { Left, Right, None}
 
-        int speed = 5;
+        int speed = 6;
+        int score = 0; 
         Random l = new Random(); 
         Bil bil = Bil.None; 
 
@@ -61,7 +62,19 @@ namespace CAR
             {
                 B2.Visible = false;
                 B2.Top = -B2.Height;
-                B2.Left = l.Next((panel.Width - B2.Width) / 2); 
+                B2.Left = l.Next((panel.Width - B2.Width) / 2);
+                int bil = l.Next(1, 9);
+                if (bil == 1) B2.Image = Properties.Resources.Bil1;
+                else if (bil == 2) B2.Image = Properties.Resources.Bil2;
+                else if (bil == 3) B2.Image = Properties.Resources.Bil3;
+                else if (bil == 4) B2.Image = Properties.Resources.Bil4;
+                else if (bil == 5) B2.Image = Properties.Resources.Bil5;
+                else if (bil == 6) B2.Image = Properties.Resources.Bil6;
+                else if (bil == 7) B2.Image = Properties.Resources.Bil7;
+                else if (bil == 8) B2.Image = Properties.Resources.Bil8;
+                else B2.Image = Properties.Resources.Bil9;
+
+
                 B2.Visible = true; 
 
             }
@@ -73,6 +86,16 @@ namespace CAR
                 B1.Visible = false;
                 B1.Top = -B1.Height;
                 B1.Left = l.Next(panel.Width / 2, panel.Width- B1.Width);
+                int bil = l.Next(1, 9);
+                if (bil == 1) B1.Image = Properties.Resources.Bil1;
+                else if (bil == 2) B1.Image = Properties.Resources.Bil2;
+                else if (bil == 3) B1.Image = Properties.Resources.Bil3;
+                else if (bil == 4) B1.Image = Properties.Resources.Bil4;
+                else if (bil == 5) B1.Image = Properties.Resources.Bil5;
+                else if (bil == 6) B1.Image = Properties.Resources.Bil6;
+                else if (bil == 7) B1.Image = Properties.Resources.Bil7;
+                else if (bil == 8) B1.Image = Properties.Resources.Bil8;
+                else B1.Image = Properties.Resources.Bil9;
                 B1.Visible = true;
 
             }
@@ -82,6 +105,17 @@ namespace CAR
                 timerAction.Enabled = false;
                 Game_Over.Visible = true; 
             }
+            
+            score++;
+            if (score > 500) speed = 7;
+            if (score > 1000) speed = 8;
+            if (score > 1500) speed = 9;
+            if (score > 2000) speed = 10;
+            if (score > 3000) speed = 12;
+            if (score > 4000) speed = 14;
+            if (score > 5000) speed = 15;
+
+            labelSpeed.Text = "Speed: " + score; 
 
             if (bil == Bil.Left && Spelare.Left>0)
                 Spelare.Left -= speed;
@@ -105,7 +139,10 @@ namespace CAR
                     Game_Over.Visible = false;
                     Spelare.Left = panel.Width / 2;
                     B2.Left = 0;
-                    B1.Left = panel.Width - B2.Width; 
+                    B1.Left = panel.Width - B2.Width;
+                    speed = 5;
+                    score = 0;
+                    timerAction.Enabled = true;  
                 }
 
         }
